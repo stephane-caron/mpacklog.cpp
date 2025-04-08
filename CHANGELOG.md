@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- CICD: Update checkout action to v4
 - docs: Don't show include files on class pages
 - Bazel: Treat warnings as errors
 
