@@ -3,8 +3,8 @@
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 def palimpsest_repository(
-        version = "2.2.1",
-        sha256 = "d998b4e195ef75e558f0477da85ffd1961fb2a5b9ad1bafa1a378b6fa8931505"):
+        version = "2.3.2",
+        sha256 = "4395f1d4e1c6d19bbc754bdafc489aff6a406d660c9b62e08cf99ca8a53c2789"):
     """
     Download release archive from GitHub.
 
