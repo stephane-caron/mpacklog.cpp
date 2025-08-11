@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.1.2] - 2025-08-11
+
 ### Changed
 
 - Update palimpsest to 2.3.2
@@ -71,10 +73,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 First release of the project.
 
-[unreleased]: https://github.com/qpsolvers/qpsolvers/compare/v3.1.1...HEAD
-[3.1.1]: https://github.com/qpsolvers/qpsolvers/compare/v3.1.0...v3.1.1
-[3.1.0]: https://github.com/qpsolvers/qpsolvers/compare/v3.0.0...v3.1.0
-[3.0.0]: https://github.com/qpsolvers/qpsolvers/compare/v2.1.0...v3.0.0
-[2.1.0]: https://github.com/qpsolvers/qpsolvers/compare/v2.0.0...v2.1.0
-[2.0.0]: https://github.com/qpsolvers/qpsolvers/compare/v1.0.0...v2.0.0
-[1.0.0]: https://github.com/qpsolvers/qpsolvers/releases/tag/v1.0.0
+[unreleased]: https://github.com/stephane-caron/mpacklog.cpp/compare/v3.1.2...HEAD
+[3.1.2]: https://github.com/stephane-caron/mpacklog.cpp/compare/v3.1.1...v3.1.2
+[3.1.1]: https://github.com/stephane-caron/mpacklog.cpp/compare/v3.1.0...v3.1.1
+[3.1.0]: https://github.com/stephane-caron/mpacklog.cpp/compare/v3.0.0...v3.1.0
+[3.0.0]: https://github.com/stephane-caron/mpacklog.cpp/compare/v2.1.0...v3.0.0
+[2.1.0]: https://github.com/stephane-caron/mpacklog.cpp/compare/v2.0.0...v2.1.0
+[2.0.0]: https://github.com/stephane-caron/mpacklog.cpp/compare/v1.0.0...v2.0.0
+[1.0.0]: https://github.com/stephane-caron/mpacklog.cpp/releases/tag/v1.0.0
