@@ -65,11 +65,11 @@ bool Logger::put(char *data, size_t size) {
   last_size_ = size;
   char *ndata = new char[size];
   std::memcpy(ndata, data, size);
-  return circular_buffer_.push({ndata, size});
+  return buffer_.push({ndata, size});
 }
 
 void Logger::flush_buffer() {
-  while (circular_buffer_.pop(pop_)) {
+  while (buffer_.pop(pop_)) {
     char *data = pop_.first;
     size_t size = pop_.second;
     file_.write(data, static_cast<int>(size));
