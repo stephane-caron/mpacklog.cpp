@@ -17,7 +17,7 @@ load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
 http_archive(
     name = "mpacklog",
-    sha256 = "...",
+    sha256 = "d9931db7fff526f6eae1421e0b12eef7e153b43722191d85e79fe85c9438b3ec",
     strip_prefix = "mpacklog.cpp-3.2.0",
     url = "https://github.com/stephane-caron/mpacklog.cpp/archive/refs/tags/v3.2.0.tar.gz",
 )
