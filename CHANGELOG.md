@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Add `Logger::buffer_size` getter
+- Unit tests to complete the logger unit test fixture
 
 ## [3.1.2] - 2025-08-11
 
