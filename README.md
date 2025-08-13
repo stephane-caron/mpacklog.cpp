@@ -1,8 +1,8 @@
 # mpacklog.cpp
 
 [![Build](https://img.shields.io/github/actions/workflow/status/stephane-caron/mpacklog.cpp/bazel.yml?branch=main)](https://github.com/stephane-caron/mpacklog.cpp/actions)
-[![Coverage](https://coveralls.io/repos/github/stephane-caron/mpacklog.cpp/badge.svg?branch=main)](https://coveralls.io/github/stephane-caron/mpacklog.cpp?branch=main)
 [![Documentation](https://img.shields.io/badge/docs-online-brightgreen?logo=read-the-docs&style=flat)](https://stephane-caron.github.io/mpacklog.cpp/)
+[![Coverage](https://coveralls.io/repos/github/stephane-caron/mpacklog.cpp/badge.svg?branch=main)](https://coveralls.io/github/stephane-caron/mpacklog.cpp?branch=main)
 ![C++ versions](https://img.shields.io/badge/C++-17/20-blue.svg?style=flat)
 [![Release](https://img.shields.io/github/v/release/stephane-caron/mpacklog.cpp.svg?sort=semver)](https://github.com/stephane-caron/mpacklog.cpp/releases)
 
