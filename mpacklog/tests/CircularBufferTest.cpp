@@ -46,4 +46,143 @@ TEST(CircularBuffer, CannotPushForever) {
   ASSERT_FALSE(buffer.pop(popped));
 }
 
+TEST(CircularBuffer, Size) {
+  CircularBuffer<int, 5> buffer;
+
+  // Initially empty
+  EXPECT_EQ(buffer.size(), 0u);
+  EXPECT_TRUE(buffer.empty());
+
+  // Add items and check size increases
+  buffer.push(1);
+  EXPECT_EQ(buffer.size(), 1u);
+  EXPECT_FALSE(buffer.empty());
+
+  buffer.push(2);
+  EXPECT_EQ(buffer.size(), 2u);
+
+  buffer.push(3);
+  EXPECT_EQ(buffer.size(), 3u);
+
+  // Pop items and check size decreases
+  int popped;
+  buffer.pop(popped);
+  EXPECT_EQ(buffer.size(), 2u);
+
+  buffer.pop(popped);
+  EXPECT_EQ(buffer.size(), 1u);
+
+  buffer.pop(popped);
+  EXPECT_EQ(buffer.size(), 0u);
+  EXPECT_TRUE(buffer.empty());
+}
+
+TEST(CircularBuffer, OrderPreservation) {
+  CircularBuffer<int, 10> buffer;
+
+  // Push sequence of values
+  for (int i = 1; i <= 5; ++i) {
+    ASSERT_TRUE(buffer.push(i));
+  }
+
+  // Pop and verify order (FIFO)
+  int popped;
+  for (int expected = 1; expected <= 5; ++expected) {
+    ASSERT_TRUE(buffer.pop(popped));
+    EXPECT_EQ(popped, expected);
+  }
+
+  EXPECT_TRUE(buffer.empty());
+}
+
+TEST(CircularBuffer, WrappingBehavior) {
+  CircularBuffer<char, 3> buffer;
+
+  // Fill buffer to capacity
+  ASSERT_TRUE(buffer.push('a'));
+  ASSERT_TRUE(buffer.push('b'));
+  ASSERT_TRUE(buffer.push('c'));
+  EXPECT_EQ(buffer.size(), 3u);
+
+  // Cannot push more
+  ASSERT_FALSE(buffer.push('d'));
+  EXPECT_EQ(buffer.size(), 3u);
+
+  // Pop one item, then can push again
+  char popped;
+  ASSERT_TRUE(buffer.pop(popped));
+  EXPECT_EQ(popped, 'a');
+  EXPECT_EQ(buffer.size(), 2u);
+
+  ASSERT_TRUE(buffer.push('d'));
+  EXPECT_EQ(buffer.size(), 3u);
+
+  // Verify remaining order
+  ASSERT_TRUE(buffer.pop(popped));
+  EXPECT_EQ(popped, 'b');
+  ASSERT_TRUE(buffer.pop(popped));
+  EXPECT_EQ(popped, 'c');
+  ASSERT_TRUE(buffer.pop(popped));
+  EXPECT_EQ(popped, 'd');
+
+  EXPECT_TRUE(buffer.empty());
+}
+
+TEST(CircularBuffer, DifferentTypes) {
+  // Test with string type
+  CircularBuffer<std::string, 5> str_buffer;
+  ASSERT_TRUE(str_buffer.push("hello"));
+  ASSERT_TRUE(str_buffer.push("world"));
+  EXPECT_EQ(str_buffer.size(), 2u);
+
+  std::string popped_str;
+  ASSERT_TRUE(str_buffer.pop(popped_str));
+  EXPECT_EQ(popped_str, "hello");
+
+  // Test with pair type
+  CircularBuffer<std::pair<int, double>, 3> pair_buffer;
+  ASSERT_TRUE(pair_buffer.push(std::make_pair(1, 1.5)));
+  ASSERT_TRUE(pair_buffer.push(std::make_pair(2, 2.5)));
+  EXPECT_EQ(pair_buffer.size(), 2u);
+
+  std::pair<int, double> popped_pair;
+  ASSERT_TRUE(pair_buffer.pop(popped_pair));
+  EXPECT_EQ(popped_pair.first, 1);
+  EXPECT_EQ(popped_pair.second, 1.5);
+}
+
+TEST(CircularBuffer, EmptyBuffer) {
+  CircularBuffer<int, 10> buffer;
+
+  // Empty buffer operations
+  EXPECT_TRUE(buffer.empty());
+  EXPECT_EQ(buffer.size(), 0u);
+
+  // Cannot pop from empty buffer
+  int popped;
+  EXPECT_FALSE(buffer.pop(popped));
+}
+
+TEST(CircularBuffer, SingleElementBuffer) {
+  CircularBuffer<int, 1> buffer;
+
+  // Can push one element
+  ASSERT_TRUE(buffer.push(42));
+  EXPECT_EQ(buffer.size(), 1u);
+  EXPECT_FALSE(buffer.empty());
+
+  // Cannot push another
+  ASSERT_FALSE(buffer.push(43));
+  EXPECT_EQ(buffer.size(), 1u);
+
+  // Can pop the element
+  int popped;
+  ASSERT_TRUE(buffer.pop(popped));
+  EXPECT_EQ(popped, 42);
+  EXPECT_TRUE(buffer.empty());
+
+  // Cannot pop again
+  ASSERT_FALSE(buffer.pop(popped));
+}
+
 }  // namespace mpacklog
