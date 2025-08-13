@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+#include <string>
+#include <utility>
+
 #include "gtest/gtest.h"
 #include "mpacklog/CircularBuffer.h"
 
