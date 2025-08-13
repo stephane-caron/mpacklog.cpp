@@ -101,6 +101,9 @@ class Logger {
     return Logger::put(serialization_buffer_.data(), size);
   }
 
+  //! Current size of the circular buffer, in number of items.
+  size_t buffer_size() const { return buffer_.size(); }
+
   //! Size of the last message in bytes.
   size_t last_size() const { return last_size_; }
 
@@ -119,7 +122,7 @@ class Logger {
   bool keep_going_ = true;
 
   //! Circular buffer holding serialized data to write to the log.
-  CircularBuffer<std::pair<char *, size_t>, kBufferSize> circular_buffer_;
+  CircularBuffer<std::pair<char *, size_t>, kBufferSize> buffer_;
 
   //! Last item popped from the circular buffer.
   std::pair<char *, size_t> pop_;
