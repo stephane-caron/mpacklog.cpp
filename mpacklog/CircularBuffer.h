@@ -82,10 +82,10 @@ struct CircularBuffer {
   }
 
   //! Check whether the buffer is empty.
-  bool empty() { return head_ == tail_; }
+  bool empty() const { return head_ == tail_; }
 
   //! Number of items in the buffer.
-  size_t size() { return (tail_ + Capacity - head_) % Capacity; }
+  size_t size() const { return (tail_ + Capacity - head_) % Capacity; }
 
  private:
   /*! Get next index in the circular buffer.
