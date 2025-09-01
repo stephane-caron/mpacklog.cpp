@@ -33,8 +33,29 @@ cc_library(
         "-pthread",
     ],
     deps = [
-        "@palimpsest",
         ":circular_buffer",
+        "@palimpsest",
+    ],
+)
+
+cc_library(
+    name = "delta_logger",
+    hdrs = [
+        "DeltaLogger.h",
+    ],
+    include_prefix = "mpacklog",
+    srcs = [
+        "DeltaLogger.cpp",
+    ],
+    copts = [
+        "-pthread",
+    ],
+    linkopts = [
+        "-pthread",
+    ],
+    deps = [
+        ":logger",
+        "@palimpsest",
     ],
 )
 
@@ -42,6 +63,7 @@ cc_library(
     name = "mpacklog",
     deps = [
         ":circular_buffer",
+        ":delta_logger",
         ":logger",
     ],
 )

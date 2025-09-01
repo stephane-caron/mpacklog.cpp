@@ -9,7 +9,10 @@
 
 namespace mpacklog::logging {
 
-TEST(Logger, Foo) { Logger logger("test.log"); }
+TEST(Logger, Constructor) {
+  Logger logger("test.log");
+  EXPECT_EQ(logger.buffer_size(), 0u);
+}
 
 TEST(Logger, BufferSize) {
   Logger logger("test_buffer_size.log");

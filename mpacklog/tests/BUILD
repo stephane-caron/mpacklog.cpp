@@ -15,6 +15,16 @@ cc_test(
 )
 
 cc_test(
+    name = "delta_logger",
+    srcs = ["DeltaLoggerTest.cpp"],
+    deps = [
+        "//mpacklog",
+        "@eigen",
+        "@googletest//:main",
+    ],
+)
+
+cc_test(
     name = "logger",
     srcs = ["LoggerTest.cpp"],
     deps = [
