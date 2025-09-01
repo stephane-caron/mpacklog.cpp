@@ -41,10 +41,11 @@ The library is multi-threaded. Add messages to the log using the [`put`](https:/
 int main() {
     mpacklog::Logger logger("output.mpack");
 
+    palimpsest::Dictionary dict;
+    dict("something") = "foo";
+
     for (unsigned bar = 0; bar < 1000u; ++bar) {
-        palimpsest::Dictionary dict;
-        dict("foo") = bar;
-        dict("something") = "else";
+        dict("bar") = bar;
         logger.put(dict):
     }
 }
@@ -52,6 +53,6 @@ int main() {
 
 ## See also
 
-* [mpacklog.py](https://github.com/stephane-caron/mpacklog.py): Sibling Python project with an `mpacklog` command-line tool to manipulate MessagePack files.
 * [`jq`](https://github.com/stedolan/jq): manipulate JSON series to add, remove or extend fields.
+* [mpacklog.py](https://github.com/stephane-caron/mpacklog.py): Sibling Python project with an `mpacklog` command-line tool to manipulate MessagePack files.
 * [`rq`](https://github.com/dflemstr/rq): transform from/to MessagePack, JSON, YAML, TOML, ...
