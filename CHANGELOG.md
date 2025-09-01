@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add a top-level Makefile to build the documentation locally
 
+### Fixed
+
+- docs: Fix documentation of the `CircularBuffer` class
+
 ## [3.2.0] - 2025-08-13
 
 ### Added

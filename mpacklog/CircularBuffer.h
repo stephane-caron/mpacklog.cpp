@@ -17,7 +17,7 @@
 
 namespace mpacklog {
 
-/** Lock-free, thread-safe, single-producer single-consumer circular buffer.
+/*! Lock-free, thread-safe, single-producer single-consumer circular buffer.
  *
  * Loosely based off the article:
  * https://www.codeproject.com/Articles/43510/Lock-Free-Single-Producer-Single-Consumer-Circular
