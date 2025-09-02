@@ -53,6 +53,6 @@ int main() {
 
 ## See also
 
-* [`jq`](https://github.com/stedolan/jq): manipulate JSON series to add, remove or extend fields.
+* [jq](https://github.com/stedolan/jq): manipulate JSON series to add, remove or extend fields.
 * [mpacklog.py](https://github.com/stephane-caron/mpacklog.py): Sibling Python project with an `mpacklog` command-line tool to manipulate MessagePack files.
-* [`rq`](https://github.com/dflemstr/rq): transform from/to MessagePack, JSON, YAML, TOML, ...
+* [rq](https://github.com/dflemstr/rq): transform from/to MessagePack, JSON, YAML, TOML, ...
