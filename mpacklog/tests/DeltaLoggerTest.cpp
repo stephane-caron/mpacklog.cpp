@@ -27,4 +27,45 @@ TEST(DeltaLogger, InheritanceFromLogger) {
   EXPECT_TRUE(success);
 }
 
+TEST(DeltaLogger, PutDictionary) {
+  DeltaLogger logger("test_delta_put.log");
+
+  palimpsest::Dictionary dict1;
+  dict1("counter") = 1;
+  dict1("name") = "first";
+
+  palimpsest::Dictionary dict2;
+  dict2("counter") = 2;
+  dict2("name") = "second";
+
+  // Put first dictionary
+  bool success1 = logger.put(dict1);
+  EXPECT_TRUE(success1);
+
+  // Put second dictionary
+  bool success2 = logger.put(dict2);
+  EXPECT_TRUE(success2);
+
+  // Both puts should succeed
+  EXPECT_TRUE(success1 && success2);
+}
+
+TEST(DeltaLogger, MultipleDictionaries) {
+  DeltaLogger logger("test_delta_multiple.log");
+
+  // Test logging multiple dictionaries with similar structure
+  for (int i = 0; i < 5; ++i) {
+    palimpsest::Dictionary dict;
+    dict("iteration") = i;
+    dict("value") = i * 10;
+    dict("constant") = "unchanged";
+
+    bool success = logger.put(dict);
+    EXPECT_TRUE(success);
+  }
+
+  // Verify buffer has entries
+  EXPECT_GT(logger.buffer_size(), 0u);
+}
+
 }  // namespace mpacklog::delta_logging
