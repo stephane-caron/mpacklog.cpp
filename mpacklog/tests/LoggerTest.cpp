@@ -9,11 +9,6 @@
 
 namespace mpacklog::logging {
 
-TEST(Logger, Constructor) {
-  Logger logger("test.log");
-  EXPECT_EQ(logger.buffer_size(), 0u);
-}
-
 TEST(Logger, BufferSize) {
   Logger logger("test_buffer_size.log");
 
@@ -100,8 +95,9 @@ TEST(Logger, PutDictionary) {
 
   EXPECT_TRUE(logger.put(dict));
   EXPECT_EQ(logger.buffer_size(), 1u);
-  EXPECT_GT(logger.last_size(),
-            0u);  // Dictionary should serialize to non-zero size
+
+  // Dictionary should serialize to non-zero size
+  EXPECT_GT(logger.last_size(), 0u);
 }
 
 TEST(Logger, Constructor) {
