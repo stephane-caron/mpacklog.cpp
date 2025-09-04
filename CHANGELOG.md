@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add a top-level Makefile to build the documentation locally
 
+### Changed
+
+- Update palimpsest to 2.4.0
+
 ### Fixed
 
 - docs: Fix documentation of the `CircularBuffer` class
