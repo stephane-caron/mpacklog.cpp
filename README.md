@@ -8,6 +8,39 @@
 
 Log dictionaries to MessagePack files in C++.
 
+## Usage
+
+The library is multi-threaded. Add messages to the log using the [`put`](https://scaron.info/doc/mpacklog/classmpacklog_1_1Logger.html#af0c278a990b1275b306e89013bb1fac6) function, they will be written to file in the background.
+
+```cpp
+#include <mpacklog/Logger.h>
+#include <palimpsest/Dictionary.h>
+
+int main() {
+    mpacklog::Logger logger("output.mpack");
+
+    palimpsest::Dictionary dict;
+    dict("something") = "foo";
+
+    for (unsigned bar = 0; bar < 1000u; ++bar) {
+        dict("bar") = bar;
+        logger.put(dict):
+    }
+}
+```
+
+## Example
+
+To try the library from a clone of this repository, run:
+
+```console
+tools/bazelisk run //examples:delta_compression
+```
+
+This example logs the same data with both a `Logger` and a `DeltaLogger`, then compares the resulting file sizes and the time spent per step.
+
+Note that this example requires [Eigen](https://eigen.tuxfamily.org/) to be installed on your system, for instance `sudo apt install libeigen3-dev` on Debian/Ubuntu or `brew install eigen` on macOS.
+
 ## Installation
 
 Add a git repository rule to your Bazel ``WORKSPACE``:
@@ -29,27 +62,6 @@ add_mpacklog_repositories()
 ```
 
 You can then use the ``@mpacklog`` dependency in your C++ targets.
-
-## Usage
-
-The library is multi-threaded. Add messages to the log using the [`put`](https://scaron.info/doc/mpacklog/classmpacklog_1_1Logger.html#af0c278a990b1275b306e89013bb1fac6) function, they will be written to file in the background.
-
-```cpp
-#include <mpacklog/Logger.h>
-#include <palimpsest/Dictionary.h>
-
-int main() {
-    mpacklog::Logger logger("output.mpack");
-
-    palimpsest::Dictionary dict;
-    dict("something") = "foo";
-
-    for (unsigned bar = 0; bar < 1000u; ++bar) {
-        dict("bar") = bar;
-        logger.put(dict):
-    }
-}
-```
 
 ## See also
 
