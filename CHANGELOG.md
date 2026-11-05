@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Add `DeltaLogger` class for logging with delta compression
-- Add a top-level Makefile to build the documentation locally
+- docs: Add a Makefile to build the documentation locally
 
 ### Changed
 
