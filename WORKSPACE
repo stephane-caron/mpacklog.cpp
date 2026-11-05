@@ -1,6 +1,4 @@
 # -*- python -*-
-#
-# Copyright 2022 Stéphane Caron
 
 workspace(name = "mpacklog")
 

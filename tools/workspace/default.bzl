@@ -1,6 +1,4 @@
 # -*- python -*-
-#
-# Copyright 2022 Stéphane Caron
 
 load("//tools/workspace/palimpsest:repository.bzl", "palimpsest_repository")
 
