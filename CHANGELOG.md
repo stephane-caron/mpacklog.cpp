@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Make `Logger` destructor and dictionary `put` function virtual
 - Update palimpsest to 2.4.0
 
 ### Fixed

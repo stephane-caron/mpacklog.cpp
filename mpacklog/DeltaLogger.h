@@ -14,9 +14,9 @@ using palimpsest::Dictionary;
 
 /*! Logger with delta compression.
  *
- * This logger inherits from Logger and overrides the put function to perform
- * delta compression (delta encoding) on dictionaries before logging them.
- * Delta compression stores only the differences between consecutive
+ * This logger inherits from Logger and overrides the dictionary put function to
+ * perform delta compression (delta encoding) on dictionaries before logging
+ * them. Delta compression stores only the differences between consecutive
  * dictionaries, reducing file size for similar sequential data.
  */
 class DeltaLogger : public Logger {
@@ -37,7 +37,7 @@ class DeltaLogger : public Logger {
    *
    * \return True if the dictionary was successfully stored for logging.
    */
-  bool put(const Dictionary &dict);
+  bool put(const Dictionary &dict) override;
 
  private:
   //! Uncompressed version of the last logged dictionary.

@@ -60,7 +60,7 @@ class Logger {
   explicit Logger(const std::string &path, bool append = false);
 
   //! Stop the logging thread.
-  ~Logger();
+  virtual ~Logger();
 
   /*! Save data to be written to the log.
    *
@@ -83,7 +83,7 @@ class Logger {
    *
    * \sa put(char*, size_t)
    */
-  inline bool put(const Dictionary &dict) {
+  virtual bool put(const Dictionary &dict) {
     size_t size = dict.serialize(serialization_buffer_);
     return Logger::put(serialization_buffer_.data(), size);
   }

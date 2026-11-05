@@ -25,6 +25,12 @@ TEST(DeltaLogger, InheritanceFromLogger) {
 
   bool success = logger->put(dict);
   EXPECT_TRUE(success);
+  const size_t full_size = logger->last_size();
+
+  // Putting the same dictionary again should log an empty delta
+  success = logger->put(dict);
+  EXPECT_TRUE(success);
+  EXPECT_LT(logger->last_size(), full_size);
 }
 
 TEST(DeltaLogger, PutDictionary) {
